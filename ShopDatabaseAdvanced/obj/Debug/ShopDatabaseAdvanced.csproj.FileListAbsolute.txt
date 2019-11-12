@@ -10,3 +10,15 @@ C:\Users\opilane\Projects\prog2-master\ShopDatabaseAdvanced\obj\Debug\ShopDataba
 C:\Users\opilane\Projects\prog2-master\ShopDatabaseAdvanced\obj\Debug\ShopDatabaseAdvanced.csproj.CopyComplete
 C:\Users\opilane\Projects\prog2-master\ShopDatabaseAdvanced\obj\Debug\ShopDatabaseAdvanced.exe
 C:\Users\opilane\Projects\prog2-master\ShopDatabaseAdvanced\obj\Debug\ShopDatabaseAdvanced.pdb
+C:\Users\Robert\Source\Repos\AdvancedShopDatabase2\ShopDatabaseAdvanced\bin\Debug\ShopDatabaseAdvanced.exe.config
+C:\Users\Robert\Source\Repos\AdvancedShopDatabase2\ShopDatabaseAdvanced\bin\Debug\ShopDatabaseAdvanced.exe
+C:\Users\Robert\Source\Repos\AdvancedShopDatabase2\ShopDatabaseAdvanced\bin\Debug\ShopDatabaseAdvanced.pdb
+C:\Users\Robert\Source\Repos\AdvancedShopDatabase2\ShopDatabaseAdvanced\bin\Debug\EntityFramework.dll
+C:\Users\Robert\Source\Repos\AdvancedShopDatabase2\ShopDatabaseAdvanced\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Robert\Source\Repos\AdvancedShopDatabase2\ShopDatabaseAdvanced\bin\Debug\EntityFramework.xml
+C:\Users\Robert\Source\Repos\AdvancedShopDatabase2\ShopDatabaseAdvanced\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Robert\Source\Repos\AdvancedShopDatabase2\ShopDatabaseAdvanced\obj\Debug\ShopDatabaseAdvanced.csprojAssemblyReference.cache
+C:\Users\Robert\Source\Repos\AdvancedShopDatabase2\ShopDatabaseAdvanced\obj\Debug\ShopDatabaseAdvanced.csproj.CoreCompileInputs.cache
+C:\Users\Robert\Source\Repos\AdvancedShopDatabase2\ShopDatabaseAdvanced\obj\Debug\ShopDatabaseAdvanced.csproj.CopyComplete
+C:\Users\Robert\Source\Repos\AdvancedShopDatabase2\ShopDatabaseAdvanced\obj\Debug\ShopDatabaseAdvanced.exe
+C:\Users\Robert\Source\Repos\AdvancedShopDatabase2\ShopDatabaseAdvanced\obj\Debug\ShopDatabaseAdvanced.pdb

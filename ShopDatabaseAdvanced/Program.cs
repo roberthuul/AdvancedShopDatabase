@@ -13,14 +13,6 @@ namespace ShopDatabaseAdvanced
     {
         static void Main(string[] args)
         {
-            //List<Food> groceries = new List<Food>
-            //{
-            //    new Food("apple", 1.7),
-            //    new Food("bread", 1.2),
-            //    new Food("cheese", 2),
-            //    new Food("milk", 1),
-            //    new Food("icecream", 1.5)
-            //};
 
             using (var db = new AdvancedShopDatabaseContext())
             {
@@ -28,6 +20,7 @@ namespace ShopDatabaseAdvanced
                 //db.SaveChanges();
 
                 var customers = db.Customers;
+                var foods = db.Foods;
 
                 Console.WriteLine("Sisestage oma nimi");
                 string name = Console.ReadLine();
@@ -37,18 +30,23 @@ namespace ShopDatabaseAdvanced
                 {
                     Console.WriteLine("Tere " + name);
                     Customer customer = customers.FirstOrDefault(x => x.Name == name);
-                    customer.addVisit();
                 } else
                 {
                     Customer customer = new Customer(name);
                     Console.WriteLine("Tere " + name);
-                    db.Customers.Add(customer);
+                    customers.Add(customer);
                     db.SaveChanges();
                 }
                 
 
                 ShoppingCart newCart = new ShoppingCart();
                 db.ShoppingCarts.Add(newCart);
+
+                Console.WriteLine("Kaubavalik:");
+                foreach (var item in foods)
+                {
+                    Console.WriteLine(item.Name);
+                }
 
                 ChooseFood(db, newCart);
                 while (Console.ReadLine() == "j")
@@ -59,6 +57,7 @@ namespace ShopDatabaseAdvanced
                 db.SaveChanges();
 
                 var shoppingCarts = db.ShoppingCarts.Include("Items");
+                Console.WriteLine("Ostukorvi sisu:");
                 foreach(var item in newCart.Items)
                 {
                     
@@ -66,22 +65,49 @@ namespace ShopDatabaseAdvanced
                     
                 }
                 Console.WriteLine($"Ostukorvi summa: {newCart.Sum}");
-                //db.Customers.FirstOrDefault(x => x.Name == name).ShoppingCarts.Add(newCart);
-                Console.WriteLine((db.Customers.FirstOrDefault(x => x.Name == name)).ShoppingCarts );
-                //customer1.ShoppingCarts.Add(newCart);
+                customers.FirstOrDefault(x => x.Name == name).ShoppingCarts.Add(newCart);
                 db.SaveChanges();
+
+                var shoppingCount = customers.FirstOrDefault(x => x.Name == name).ShoppingCarts.Count();
+
+                Console.WriteLine("Külastuste arv: " + shoppingCount);
+                if (shoppingCount > 1)
+                {
+                    Console.WriteLine("Kas soovite näha oma ostude ajalugu? (j/e)");
+                    string answer = Console.ReadLine();
+                    if (answer == "j")
+                    {
+                        var shoppingHistory = customers.FirstOrDefault(x => x.Name == name).ShoppingCarts.OrderByDescending(y => y.DateCreated);
+                        foreach (var item in shoppingHistory)
+                        {
+                            Console.WriteLine("Kuupäev: " + item.DateCreated);
+                            foreach (var contents in item.Items)
+                            {
+                                Console.WriteLine(contents.Name);
+                            }
+                            Console.WriteLine("Ostukorvi summa: " + item.Sum);
+                        }
+                    }
+                }
             }
+            Console.WriteLine("Täname külastamast, head päeva jätku!");
             Console.ReadKey();
         }
 
         private static void ChooseFood(AdvancedShopDatabaseContext db, ShoppingCart newCart)
         {
-            Console.WriteLine();
             Console.WriteLine("Mida soovite osta?");
             string foodName = Console.ReadLine();
             Food chosenFood = db.Foods.FirstOrDefault(x => x.Name == foodName);
-            newCart.AddToCart(chosenFood);
-            Console.WriteLine();
+            if (chosenFood != null)
+            {
+                newCart.AddToCart(chosenFood);
+            }
+            else
+            {
+                Console.WriteLine("Sellist toitu ei ole valikus");
+            }
+            
             Console.WriteLine("Midagi veel? j/e");
         }
     }

@@ -17,8 +17,6 @@ namespace ShopDatabaseAdvanced.Model
 
         public virtual ICollection<Food> Items { get; set; }
 
-        public Customer Owner { get; set; }
-
         public ShoppingCart()
         {
             Id = Guid.NewGuid();
@@ -32,10 +30,6 @@ namespace ShopDatabaseAdvanced.Model
             Items.Add(food);
             Sum += food.Price;
         }
-
-        public void addOwner(Customer owner)
-        {
-            Owner = owner;
-        }
+        
     }
 }

@@ -15,8 +15,6 @@ namespace ShopDatabaseAdvanced.ShopAdvancedDbContext.Model
 
         public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
 
-        public int Counter { get; set; }
-
         public Customer()
         {
 
@@ -25,13 +23,9 @@ namespace ShopDatabaseAdvanced.ShopAdvancedDbContext.Model
         public Customer(string name)
         {
             Id = Guid.NewGuid();
-            Counter = 1;
             Name = name;
+            ShoppingCarts = new List<ShoppingCart>();
         }
-
-        public void addVisit()
-        {
-            Counter++;
-        }
+        
     }
 }
